@@ -1,0 +1,21 @@
+CREATE TABLE inventory (id integer primary key, item TEXT, quantity INTEGER, price NUMERIC, category TEXT);
+
+INSERT INTO inventory VALUES (1, "shirts", 30, 15.00, "tops");
+INSERT INTO inventory VALUES (2, "jeans", 45, 35.00, "bottoms");
+INSERT INTO inventory VALUES (3, "jackets", 25, 50.00, "outerwear");
+INSERT INTO inventory VALUES (4, "camis", 30, 18.00, "tops");
+INSERT INTO inventory VALUES (5, "sweaters", 24, 30.00, "tops");
+INSERT INTO inventory VALUES (6, "sandals", 15, 20.00, "shoes");
+INSERT INTO inventory VALUES (7, "sunglasses", 12, 16.00, "accessories");
+INSERT INTO inventory VALUES (8, "necklaces", 11, 12.50, "jewelry");
+INSERT INTO inventory VALUES (9, "leggings", 35, 25.00, "bottoms");
+INSERT INTO inventory VALUES (10, "hats", 10, 19.00, "accessories");
+INSERT INTO inventory VALUES (11, "bras", 45, 50.00, "intimates");
+INSERT INTO inventory VALUES (12, "underwear", 60, 15.50, "intimates");
+INSERT INTO inventory VALUES (13, "scarves", 10, 14.50, "accessories");
+INSERT INTO inventory VALUES (14, "blazers", 20, 65.50, "outwerwear");
+INSERT INTO inventory VALUES (15, "perfume", 5, 32.50, "misc");
+
+SELECT * FROM inventory ORDER BY price;
+
+SELECT SUM(quantity) FROM inventory;
