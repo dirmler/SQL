@@ -1,0 +1,43 @@
+-- Example query (PostgreSQL)
+
+--SELECT people.show_id, people.director, titles.title, titles.type 
+FROM "CharlotteChaze/BreakIntoTech"."netflix_people" people 
+LEFT JOIN "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
+ON people.show_id = titles.show_id;
+
+--Number of Movie Titles
+SELECT count(type)
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles;
+WHERE type="Movie";
+
+--Recent Shows and/or Movies added to Database
+SELECT max(date(date_added))
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info:;"
+
+--List all Movies and Shows in alphabetical order
+SELECT title 
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+ORDER BY title by asc;
+
+--Who is the director for the film Bright Star?
+SELECT director
+FROM "CharlotteChaze/BreakIntoTech"."netflix_people" people
+LEFT JOIN "CharlotteChaze/BreakIntoTech"."netlfix_titles_info" titles
+ON titles.show_id=people.show_id
+WHERE titles.title='Bright Star';
+
+--What is the oldest movie in the database and what year was it made?
+select title, release_year
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+WHERE type='Movie'
+GROUP BY title, release_year
+ORDER BY release_year asc
+LIMIT 1;
+
+-- Tips:
+-- (*) Table names containing punctuation, capitalization, or spaces should be
+--     quoted, e.g. "Test Data.csv".
+-- (*) Add more data by using the Upload Data button.
+-- (*) Create additional schemas for namespacing your tables, e.g. "CREATE SCHEMA my_schema;".
+-- (*) When querying tables created outside of the public (default) schema,
+--     be sure to specify the desired schema, e.g. "SELECT * FROM my_schema."my data.csv";".
