@@ -1,0 +1,46 @@
+#For this project, I downloaded this data set from Kaggle
+#Then I created a table to insert the Spotify data
+#Finally, I performed analytics on the data
+
+#creating the table
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness text NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL 
+)
+
+#Then I inserted the spotify data . csv into the table
+
+#Finally, I explored the data in the table
+
+#First I determined the average popularity by the artist and track name
+SELECT artist_name, track_name, avg(popularity)
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name, track_name
+
+#Next I determined which artists appeared on the list at least twice 
+SELECT artist_name
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name
+ORDER BY COUNT (artist_name)>2
+
+#Finally I selected all songs by BTS that appeared on the list in order by popularity
+SELECT track_name
+FROM BIT_DB.Spotifydata
+WHERE artist_name='BTS'
+ORDER BY popularity
