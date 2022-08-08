@@ -1,0 +1,52 @@
+For my final SQL project, I pulled together these queries to quantify the information below from the database that was provided to me.
+
+Table database: Chinook, provided by Charlotte Chaze for Break Into Tech
+
+/* List all songs by the group Deep Purple*/
+SELECT title, name
+FROM chinook.albums
+JOIN chinook.artists
+ON albums.artistid = artists.artistid
+WHERE name = 'Deep Purple'
+ORDER BY title;    
+
+/* using Join to find the following information for invoices*/
+SELECT invoices.billingaddress, invoices.invoicedate, invoices.total
+FROM chinook.invoices
+JOIN chinook.invoice_items
+ON invoices.invoiceid = invoice_items.invoiceid;              
+
+/* Selecting all tracks where composer is not null */
+SELECT *
+FROM chinook.tracks
+WHERE composer IS NOT NULL
+ORDER BY trackid;
+
+/* first name, last name, and company of all custoemrs from USA*/
+SELECT DISTINCT country, firstname, lastname, company
+FROM chinook.customers
+WHERE country = 'USA'
+ORDER BY country;
+
+/*Listing the first and last name, invoiceid, invoice date, and billing country*/
+SELECT customers.firstname, customers.lastname, invoices.invoiceid, invoices.invoicedate, invoices.billingcountry
+FROM chinook.customers
+JOIN chinook.invoices
+ON customers.customerid=invoices.customerid;
+
+/*List all employees who work in IT*/
+SELECT employeeid, lastname, firstname, title, phone 
+FROM chinook.employees
+WHERE title LIKE '%IT%';
+
+/* Finding the track name, album title, media type, and genre*/
+SELECT tracks.name AS 'Track Name', albums.title AS 'Album Title', media.name AS 'Media Type', genre.name AS 'Genre Type'
+FROM chinook.tracks tracks
+JOIN chinook.albums albums ON albums.albumid=tracks.albumid
+JOIN chinook.media_types media ON media.mediatypeid=tracks.mediatypeid
+JOIN chinook.genres genre ON genre.genreid=tracks.genreid;
+
+/* Updating employee last name*/
+UPDATE chinook.employees
+SET LastName = 'James' 
+WHERE Firstname = 'Nancy';
