@@ -1,4 +1,8 @@
--- Example query (PostgreSQL)
+/*
+
+Queries Performed on a Netflix Database
+
+*/
 
 --SELECT people.show_id, people.director, titles.title, titles.type 
 FROM "CharlotteChaze/BreakIntoTech"."netflix_people" people 
@@ -33,11 +37,3 @@ WHERE type='Movie'
 GROUP BY title, release_year
 ORDER BY release_year asc
 LIMIT 1;
-
--- Tips:
--- (*) Table names containing punctuation, capitalization, or spaces should be
---     quoted, e.g. "Test Data.csv".
--- (*) Add more data by using the Upload Data button.
--- (*) Create additional schemas for namespacing your tables, e.g. "CREATE SCHEMA my_schema;".
--- (*) When querying tables created outside of the public (default) schema,
---     be sure to specify the desired schema, e.g. "SELECT * FROM my_schema."my data.csv";".
