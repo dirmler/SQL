@@ -1,3 +1,11 @@
+/* 
+
+Practice Example
+
+/*
+
+
+
 CREATE TABLE inventory (id integer primary key, item TEXT, quantity INTEGER, price NUMERIC, category TEXT);
 
 INSERT INTO inventory VALUES (1, "shirts", 30, 15.00, "tops");
