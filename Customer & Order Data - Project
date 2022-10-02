@@ -19,21 +19,9 @@ FROM BIT_DB.Jansales
 WHERE price in (SELECT min (price) FROM BIT_DB.JanSales)
 
 #5. What is the total revenue for each product sold in January?
-#option 1#
 SELECT product, price
 FROM BIT_DB.JanSales
 ORDER BY price ASC LIMIT 1
-
-#option 2#
-SELECT distinct product, MIN (price)
-FROM BIT_DB.JanSales Jan
-GROUP BY product, price
-ORDER BY price ASC LIMIT 1
-
-#option 3#
-SELECT sum (quantity)*price as revenue, product
-FROM BIT_DB.JanSales
-GROUP BY product
 
 #6. Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
 SELECT sum(Quantity), product, sum(quantity)*price as revenue
