@@ -1,3 +1,5 @@
+/* performed more queries on the database chinook, which was provided to me by charlate chaze from her breack into tech course */ 
+
 
 --joining album and artists table with an inner join--
 SELECT ab.title, a.name
