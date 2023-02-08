@@ -1,0 +1,53 @@
+
+--joining album and artists table with an inner join--
+SELECT ab.title, a.name
+FROM chinook.albums ab
+JOIN chinook.artists a
+ON ab.artistid = a.artistid;
+
+
+
+--selecting the name and albumid of albums where composers are not listed--
+SELECT name, albumid
+FROM chinook.tracks
+WHERE composer IS NULL
+ORDER BY name;
+
+
+
+--selecting artists who's names start with an "a"--
+SELECT a.name, ab.title
+FROM chinook.albums ab
+JOIN chinook.artists a
+ON ab.artistid = a.artistid
+WHERE a.name LIKE "a%"
+ORDER BY a.name;
+
+
+
+--selecting the customerid, invoicedate, and address of orders with a NULL billing state--
+SELECT customerid, 
+invoicedate, 
+billingaddress, 
+billingcity, 
+billingcountry
+FROM chinook.invoices
+WHERE billingstate IS NULL;
+
+
+
+--sum of sales in 2009--
+SELECT SUM(total) AS 2009_total
+FROM chinook.invoices
+WHERE invoicedate BETWEEN '2009-01-01' AND '2009-12-31';
+
+
+
+--selecting all customers located in the USA--
+SELECT DISTINCT customerid, 
+billingaddress, 
+billingcity, 
+billingstate
+FROM chinook.invoices
+WHERE billingcountry = 'USA'
+ORDER BY customerid;
