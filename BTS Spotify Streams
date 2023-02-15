@@ -1,3 +1,5 @@
+/* I used this spotify stream data set to discover several pieces of information for the group BTS */
+
 --selecting song name, days, and peak position from the band BTS--
 SELECT "song name", days, "peak position"
 FROM.. dbo.spotify
