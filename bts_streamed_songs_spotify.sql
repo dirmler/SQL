@@ -1,0 +1,53 @@
+--selecting song name, days, and peak position from the band BTS--
+SELECT "song name", days, "peak position"
+FROM.. dbo.spotify
+WHERE "artist name" = 'BTS'
+ORDER BY "song name";
+
+
+
+--calculating the average number of BTS total song streams--
+SELECT AVG("total streams") AS total_streams
+FROM.. dbo.spotify
+WHERE "artist name" = 'BTS';
+
+
+
+--selecting the BTS songs that peaked at no more than 5--
+SELECT "song name", days, "peak position"
+FROM.. dbo.spotify
+WHERE "artist name" = 'BTS'
+AND "peak position" <= 5;
+
+
+
+--selecting all of BTS's songs that didn't reach top 10--
+SELECT DISTINCT "song name"
+FROM.. dbo.spotify
+WHERE "artist name" = 'bts' AND 
+"top 10 (xtimes)" = 0;
+
+
+
+--selecting all BTS songs that made the top 10 at least once--
+SELECT "song name"
+FROM.. dbo.spotify
+WHERE "artist name" = 'bts'
+AND "top 10 (xtimes)" >= 1;
+
+
+
+--calculating the average peak streams of BTS songs--
+SELECT AVG("peak streams") AS peak_stream
+FROM.. dbo.spotify
+WHERE "artist name" = 'BTS'; 
+
+
+--selecting all BTS songs who's peak position was at least 100--
+SELECT "song name"
+FROM.. dbo.spotify
+WHERE "artist name" = 'bts'
+AND "peak position" >= 100
+ORDER BY "song name";
+
+
